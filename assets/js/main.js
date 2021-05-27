@@ -11,7 +11,7 @@ $(function() {
             var $anchor = $(this);
 
             var offset = $('body').attr('data-offset');
-            
+
             if($('.navbar.navbar-fixed-top').hasClass('side-menu') && $(window).width() >= 992){
                 $('body').data('offset', 1);
                 offset = $('body').data('offset');
@@ -21,22 +21,22 @@ $(function() {
                 scrollTop: $($anchor.attr('href')).offset().top - (offset - 1)
             }, 1500, 'easeInOutExpo');
 
-            
+
             $('.navbar-rj-collapse').collapse('hide');
 
         });
     };
-    
-    
+
+
     /*---------------------------------------*/
     /*  STICKY NAVBAR
     /*---------------------------------------*/
     $('.navbar.navbar-fixed-top').sticky({topSpacing: 0});
-    
+
     var stickySideMenu = function(){
         var navbar = $('.navbar.navbar-fixed-top.side-menu');
-        
-        if ($(window).width() >= 992) {        
+
+        if ($(window).width() >= 992) {
             navbar.unstick();
         }
         else
@@ -45,15 +45,15 @@ $(function() {
             navbar.sticky({topSpacing: 0});
         }
     };
-    
+
     pageScroll();
     stickySideMenu();
-    
+
     $(window).smartresize(function(){
         pageScroll();
         stickySideMenu();
     });
-    
+
     $('.navbar-trigger-open').click(function(e) {
         e.preventDefault();
         $('.navbar.side-menu').toggleClass('active');
@@ -67,16 +67,17 @@ $(function() {
         $('body.push.push-left').toggleClass('pushed-left');
         $('body.push.push-right').toggleClass('pushed-right');
     });
-  
-    
+
+
     /*---------------------------------------*/
     /*  CONTACT FORM REQUEST
     /*---------------------------------------*/
+    /*
     $('.validate').validate();
-    
+
     $(document).on('submit', '#contact-us-form', function(e){
         e.preventDefault();
-        
+
         $('.form-respond').html("<div class='content-message'><i class='fa fa-refresh fa-spin'></i><span> Sending message, please wait...</span></div>");
 
         $.ajax({
@@ -90,18 +91,19 @@ $(function() {
                 } else {
                     $('.form-respond').html("<div class='content-message'><i class='fa fa-exclamation-circle'></i><span> Error sending message, please try again.</span></div>");
                 }
-                
+
                 setTimeout(function(){
                     $('.form-respond').html("");
                 },3000);
             },
             error: function(xhr, err){
                 $('.form-respond').html("<div class='content-message'><i class='fa fa-exclamation-circle'></i><span> Error sending message, please try again.</span></div>");
-                
+
                 setTimeout(function(){
                     $('.form-respond').html("");
                 },3000);
             }
         });
     });
+    */
 });
